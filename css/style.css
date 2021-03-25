@@ -57,3 +57,7 @@ img{
 .grid-item{
   background-color: #ffffff;
 }
+
+.current{
+  text-transform: uppercase;
+}
