@@ -8,11 +8,15 @@ header{
   font-family: "EB Garamond", sans-serif;
 }
 
+/* need to adjust so opacity doesn't affect the text*/
 h1{
   font-size: 50px;
   border: dotted 5px #ffffff;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url(../main-images/background-img.jpg);
+  background-size: cover;
+  opacity: .7;
   padding: 30px;
+  color: rbga;
   text-align: center;
 }
 h2{
@@ -35,11 +39,15 @@ nav li:visited{
 
 body{
   display: grid;
-  background-color: #98b38c;
+  background-color: #a9e3f5;
   padding: 20px;
 }
 
-/*style for images*/
+/*style for images
+
+at some point i need to switch this to flex
+
+*/ 
 img{
   display: block;
   width: auto;
@@ -58,6 +66,15 @@ img{
   background-color: #ffffff;
 }
 
+/* style for nav bar */
 .current{
   text-transform: uppercase;
+}
+
+/*style for footer */
+footer{
+  background-color: #2e3be7;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
