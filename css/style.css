@@ -108,5 +108,20 @@ p div{
 
 /* tablet view */
 @media screen and (min-width: 768px){
-  
+  nav{
+    text-align: center;
+  }
+  .grid-container{
+    flex-grow: 3; 
+    flex-basis: fit-content;
+
+  }
+  footer{
+    left:0;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+
+  }
+
 }
