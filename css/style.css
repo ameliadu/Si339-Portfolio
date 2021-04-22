@@ -9,19 +9,30 @@ header{
 }
 
 /* need to adjust so opacity doesn't affect the text*/
-h1{
+#h h1{
   font-size: 100px;
   border: dotted 5px #ffffff;
   background-image: url(../main-images/background-img.jpg);
   background-size: cover;
   padding: 30px;
-  color: rbga;
   text-align: center;
 }
+
+/*no font flip card in mobil or tablet */
+.flip-back h1{
+  font-size: 0px;
+}
+
 h2{
   font-size: 30px;
   text-align: center;
+  margin: 20px;
 }
+/*background image for form using parallax*/
+
+
+
+
 main p div{
   text-align:center;
   font-size:20px;
@@ -30,6 +41,7 @@ main p div{
 
 nav{
   text-align: center;
+  margin: 20px;
 }
 
 nav li{
@@ -84,7 +96,7 @@ at some point i need to switch this to flex
 
 .grid-item{
   font-size: 24px;
-  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 /* style for nav bar */
@@ -100,22 +112,25 @@ footer{
   grid-column-gap: 10px;
   left:0;
   bottom: 0;
-  width: 100%;
+  width: auto;
   position: fixed;
   background-color: #2e3be7;
   color: white;
   text-align: center;
   padding: 10px;
+
 }
 footer img{
-  width: 50px;
-  height: 100%
+  width: 30px;
+  height: auto;
 }
 
 .foot{
   background-color: #131969;
   padding: 20px;
   text-shadow: 2px 2px 5px #a9e3f5;
+  height: 10px;
+  justify-content: center;
 }
 
 /* style the form */
@@ -130,13 +145,12 @@ form{
 
 /* style p*/
 #context{
-  display: grid;
+  display: flex;
   font-size: 24px;
   justify-content: center;
   padding: 100px;
   text-align: center;
-
-
+  flex-shrink: 3;
 
 }
 
@@ -144,6 +158,20 @@ form{
   left: 50%;
   padding: 8px; 
   transform:translateY(-100%);
+}
+
+/*prefers reduced motion */
+@media screen and (prefers-reduced-motion){
+  #main img{
+    animation-name: image;
+    animation-duration: 0s;
+  }
+  body{
+    display: grid;
+    background-color: #a9e3f5;
+    padding: 20px;
+  }
+
 }
 
 /* tablet view */
@@ -172,6 +200,60 @@ form{
   footer{
     position: relative;
   }
+  body{
+    display: grid;
+    background-image: url(../main-images/background-img.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .grid-item{
+    background-color: transparent;
+    font-size: 0px;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+
+  }
+  .flip-card{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+ 
+
+  .grid-item:hover .flip-card{
+    transform: rotateY(180deg);
+  }
+
+  .flip-front, .flip-back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+  }
+
+  .flip-front {
+    color: black;
+  }
+  
+  .flip-back {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  .flip-back h1{
+    font-weight: bold;
+    font-size: 24px;
+    padding: 5px;
+  }
+  
 
 
 }

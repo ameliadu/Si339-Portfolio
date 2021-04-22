@@ -6,31 +6,30 @@
         <link rel="stylesheet" type="text/css" href="css/html5reset.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB Garamond">
-        <title>My Style Board</title>
+        <title>Suggestions</title>
     </head>
     <body>
         <a class = "skip" href="#main">Skip to Main Content</a>
-        <header id = "h_1">
+        <header id = "h">
             <h1>My Style Board</h1>
-            <h2>Hi I'm Amelia. This is my style board of clothes I love. 
-                I separated each page by color. Enjoy!
-            </h2>
+            <h2>Suggestions Form</h2>
             <nav>
                 <ul>
-                    <li><a class = "current" href="index.html">main</a></li>
+                    <li><a href="index.html">main</a></li>
                     <li><a href="white.html">white</a></li>
                     <li><a href="green.html">green</a></li>
                     <li><a href="pink.html">pink</a></li>
-                    <li><a href="form.html">suggestions</a></li>
+                    <li><a class = "current" href="form.html">suggestions</a></li>
                 </ul>
             </nav>
         </header>
-        <main id = "main">
-            <form>
+        <main id = "form-main">
+            <form action = "https://formspree.io/f/mvodglve" method = "POST">
                 <label for = "name">Name:</label><br>
                 <input type="text" id="name" name="name"><br>
                 <label for = "colors">What colors should I do next?:</label><br>
                 <input type="text" id="colors" name="colors"><br>
+                <input type="submit" value="Submit">
             </form>
         
             
