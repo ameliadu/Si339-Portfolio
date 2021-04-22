@@ -14,7 +14,6 @@ h1{
   border: dotted 5px #ffffff;
   background-image: url(../main-images/background-img.jpg);
   background-size: cover;
-  opacity: .7;
   padding: 30px;
   color: rbga;
   text-align: center;
@@ -29,13 +28,17 @@ main p div{
 
 }
 
+nav{
+  text-align: center;
+}
+
 nav li{
   display:  inline;
   position: relative;
   text-align: center;
   padding-right: 20px;
   margin: 20px;
-  font-size: 20px;
+  font-size: 24px;
   text-align: left;
 }
 nav li:visited{
@@ -55,7 +58,7 @@ body{
 at some point i need to switch this to flex
 
 */ 
-img{
+#main img{
   display: block;
   width: 200px;
   height: 200px;
@@ -63,6 +66,13 @@ img{
   border: solid 2px #000000;
   border-radius: 25%;
   margin: 30px;
+  animation-name: image;
+  animation-duration: 3s;
+}
+
+@keyframes image{
+  from{opacity: 0;}
+  to{opacity: 1;}
 }
 
 .grid-container{
@@ -73,6 +83,7 @@ img{
 }
 
 .grid-item{
+  font-size: 24px;
   background-color: #ffffff;
 }
 
@@ -83,21 +94,50 @@ img{
 
 /*style for footer */
 footer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
   background-color: #2e3be7;
   color: white;
   text-align: center;
   padding: 10px;
 }
+footer img{
+  width: 50px;
+  height: 100%
+}
 
-/* style p*/
-p{
-  display: block;
-  padding: 30px;
+.foot{
+  background-color: #131969;
+  padding: 20px;
+  text-shadow: 2px 2px 5px #a9e3f5;
+}
+
+/* style the form */
+form{
+  text-align: center;
+  font-size: 24px;
+  padding: 20px;
+  
 
 }
-p div{
 
+
+/* style p*/
+#context{
+  display: grid;
+  font-size: 24px;
+  justify-content: center;
+  padding: 100px;
   text-align: center;
+
+
+
 }
 
 .skip{
@@ -123,5 +163,15 @@ p div{
     position: fixed;
 
   }
+
+}
+
+/* desktop view */
+
+@media screen and (min-width: 880px){
+  footer{
+    position: relative;
+  }
+
 
 }
