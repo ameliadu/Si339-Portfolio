@@ -1,7 +1,10 @@
+/*scroll behavior */
 html{
   scroll-behavior: smooth;
 }
 
+
+/*style the header*/
 header{
   color: #000000;
   line-height: 2; 
@@ -10,16 +13,29 @@ header{
 
 /* need to adjust so opacity doesn't affect the text*/
 #h h1{
-  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
   border: dotted 5px #ffffff;
   background-image: url(../main-images/background-img.jpg);
   background-size: cover;
   padding: 30px;
-  text-align: center;
+  animation-name: border-change;
+  animation-duration: 3s;
+}
+
+@keyframes border-change{
+  0% {border: solid 5px #bcc4f3;}
+  75% {border: solid 5px #131969}
+  100% {border: dotted 5px #ffffff;}
+
 }
 
 /*no font flip card in mobil or tablet */
 .flip-back h1{
+  font-size: 0px;
+}
+.flip-back p{
   font-size: 0px;
 }
 
@@ -28,9 +44,8 @@ h2{
   text-align: center;
   margin: 20px;
 }
+
 /*background image for form using parallax*/
-
-
 
 
 main p div{
@@ -144,24 +159,38 @@ form{
 
 
 /* style p*/
-#context{
-  display: flex;
+.context{
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 50px;
+  margin: 15px;
   font-size: 24px;
   justify-content: center;
-  padding: 100px;
+  padding-bottom: 200px;
   text-align: center;
-  flex-shrink: 3;
-
+}
+.grid-context{
+  text-align: left;
 }
 
 .skip{
-  left: 50%;
+  left: 0;
+  position: absolute;
+  margin-top: -50px;
   padding: 8px; 
   transform:translateY(-100%);
 }
 
+.skip:focus{
+  position: absolute;
+  margin-top: 10px;
+}
+
 /*prefers reduced motion */
 @media screen and (prefers-reduced-motion){
+  #h h1{
+    animation-duration: 0s;
+  }
   #main img{
     animation-name: image;
     animation-duration: 0s;
@@ -172,10 +201,24 @@ form{
     padding: 20px;
   }
 
+  .flip-card{
+    transition: transform none;
+  }
+
 }
 
 /* tablet view */
 @media screen and (min-width: 768px){
+  #h h1{
+    font-size: 100px;
+  }
+  .context{
+    grid-template-columns: auto auto;
+    grid-column-gap: 50px;
+    margin: 15px;
+    padding: 100px;
+
+  }
   nav{
     text-align: center;
   }
@@ -227,9 +270,12 @@ form{
   }
  
 
-  .grid-item:hover .flip-card{
+  .grid-item:hover .flip-card, .grid-item:active .flip-card, .grid-item:focus .flip-card{
     transform: rotateY(180deg);
   }
+  .grid-item:focus-within .flip-card{
+    transform: rotateY(180deg);
+}
 
   .flip-front, .flip-back {
     position: fixed;
@@ -258,7 +304,5 @@ form{
     padding: 10px;
     margin: 10px;
   }
-  
-
 
 }
